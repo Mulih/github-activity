@@ -21,3 +21,15 @@ def main():
         help="GitHub username",
     )
     args = parser.parse_args()
+    config_path = args.config
+    token = args.token
+    username = args.username
+    if not os.path.exists(config_path):
+        print(f"Configuration file not found at {config_path}.")
+        return
+    if not token:
+        print("GitHub personal access token is required.")
+        return
+    if not username:
+        print("GitHub username is required.")
+        return
